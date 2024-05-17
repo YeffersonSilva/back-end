@@ -1,4 +1,11 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { mongo } from 'mongoose';
+import { Task, TaskSchema } from '../schemas/task.schema';
 
-@Module({})
+@Module({
+  imports: [
+    MongooseModule.forFeature([{ name: Task.name, schema: TaskSchema }]),
+  ],
+})
 export class TaksModule {}
