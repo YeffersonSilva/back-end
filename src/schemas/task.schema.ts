@@ -1,9 +1,9 @@
-import { Schema, Prop } from '@nestjs/mongoose';
+import { Schema, Prop,SchemaFactory } from '@nestjs/mongoose';
 
 @Schema({
   timestamps: true,
 })
-class Task {
+export class Task {
   @Prop({
     required: true,
     unique: true,
@@ -19,3 +19,6 @@ class Task {
   @Prop({ default: false })
   done: boolean;
 }
+
+
+export const TaskSchema =SchemaFactory.createForClass(Task);
